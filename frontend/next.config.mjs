@@ -7,12 +7,18 @@ const nextConfig = {
     unoptimized: true,
   },
   async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "http://localhost:8000/api/:path*",
-      },
-    ]
+    // Only proxy API calls to FastAPI backend in local development.
+    // On Vercel (production), the dashboard runs standalone with mock
+    // data fallbacks — no backend required.
+    if (process.env.NODE_ENV === "development") {
+      return [
+        {
+          source: "/api/:path*",
+          destination: "http://localhost:8000/api/:path*",
+        },
+      ]
+    }
+    return []
   },
 }
 
