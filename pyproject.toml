@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eigenalpha"
+version = "0.1.0"
+description = "Factor-based portfolio construction engine for Indian equities using PCA, K-Means clustering, and Markowitz optimisation."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "EigenAlpha Research"},
+]
+keywords = [
+    "quantitative-finance",
+    "factor-investing",
+    "portfolio-optimisation",
+    "PCA",
+    "indian-equities",
+    "markowitz",
+    "nifty-500",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "yfinance>=0.2.36",
+    "pandas>=2.0.0",
+    "numpy>=1.26.0",
+    "pyarrow>=15.0.0",
+    "scikit-learn>=1.4.0",
+    "scipy>=1.12.0",
+    "statsmodels>=0.14.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "tqdm>=4.66.0",
+    "python-dotenv>=1.0.0",
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.29.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "black>=24.0.0",
+    "flake8>=7.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yashasvkhullar-dev/Eigen-Alpha"
+Repository = "https://github.com/yashasvkhullar-dev/Eigen-Alpha"
+Documentation = "https://github.com/yashasvkhullar-dev/Eigen-Alpha/tree/main/docs"
+"Bug Tracker" = "https://github.com/yashasvkhullar-dev/Eigen-Alpha/issues"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
